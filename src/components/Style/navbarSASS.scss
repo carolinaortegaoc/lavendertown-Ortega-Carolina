@@ -1,0 +1,25 @@
+.nav {
+    display: flex;
+    background-color: antiquewhite;
+    align-items: center;
+    height: 60px;
+}
+
+.container_title {
+    text-align: center;
+    width: 70%;
+}
+
+.navUl {
+    list-style: none;
+    display: flex;
+}
+
+.navLi {
+    padding: 10px;
+}
+
+.a{
+    text-decoration: none;
+color:black
+}
