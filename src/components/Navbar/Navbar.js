@@ -1,6 +1,6 @@
 import React from 'react'
-import './Style/navbarSASS.css'
-import {CartWidget} from './CartWidget.js'
+import '../Style/navbarSASS.css'
+import {CartWidget} from '../CartWidget/CartWidget'
 
 export const Navbar = () => {
         return (
