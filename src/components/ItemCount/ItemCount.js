@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import '../ItemCount/ItemCount.css'
 
 export function ItemCount() {
     const [ItemCount, setCounter] = useState(0);
@@ -20,7 +21,7 @@ export function ItemCount() {
         };
     
     return (
-        <div>
+        <div className="contador">
             <button onClick={remove}>-</button>
             <p>{ItemCount}</p>
             <button onClick={add}>+</button>
