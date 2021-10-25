@@ -2,7 +2,7 @@
 import React from "react";
 import "./ItemList.css";
 import Item from '../Item/Item';
-import loadImage from '../images/arrow-repeat.svg'
+import Loader from "react-loader-spinner";
 
 
 const ItemList = ({ productos }) => {
@@ -12,7 +12,7 @@ const ItemList = ({ productos }) => {
             productos.map((producto) => 
                 <Item item={producto} key={producto.id} />)
       ) : (
-        <img src={loadImage} alt="loading" className="loadImage"/>
+        <Loader type="Hearts" color="#FFBFFF" height={100} width={100} />
       )}
     </div>
   );

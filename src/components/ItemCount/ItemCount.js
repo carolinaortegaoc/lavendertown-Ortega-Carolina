@@ -2,11 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import '../ItemCount/ItemCount.css'
 
-export function ItemCount() {
-    const [ItemCount, setCounter] = useState(0);
+export const ItemCount = ({ stock, initial }) => {
+    const [ItemCount, setCounter] = useState(initial);
 
     const add = () => {
-        if (ItemCount < 10) {
+        if (ItemCount < stock) {
             setCounter(ItemCount + 1);
         } else {
             alert('ups! No hay mas stock');
