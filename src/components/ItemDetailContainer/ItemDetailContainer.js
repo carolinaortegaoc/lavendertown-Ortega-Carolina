@@ -2,9 +2,12 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import ItemDetail  from '../ItemDetail/ItemDetail';
 import Products  from '../Products.json';
+import Loader from "react-loader-spinner";
 
-export function ItemDetailContainer() {
-    const [item, setItem] = useState([]);
+
+function ItemDetailContainer() {
+    const [item, setItem] = useState("");
+    const itemId = parseInt();
 
     const getData = (data) => new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -18,13 +21,23 @@ export function ItemDetailContainer() {
 
     useEffect(() => {
         getData(Products)
-            .then((res) => setItem(res))
-            .catch((err) => console.log(err));
-    }, []);
+            .then((result) => {
+                const filteredItems = result.filter(x => x.id === itemId)[0];
+                setItem(filteredItems);
+              })
+              .catch((err) => console.log(err));
+            }, [itemId]);
+          
 
     return (
         <>
-            <ItemDetail  item={item} />
-        </>
-    );
-}
+        {item ? (
+    <ItemDetail  item={itemId} />
+      ) : (
+        <Loader type="Hearts" color="#FFBFFF" height={100} width={100} />
+      )}
+    </>
+  );
+};
+
+export default ItemDetailContainer;

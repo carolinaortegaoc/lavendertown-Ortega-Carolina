@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import ItemList  from '../ItemList/ItemList';
 import Products  from '../Products.json';
 
-export function ItemListContainer() {
+function ItemListContainer() {
     const [productos, setProductos] = useState([]);
 
     const getData = (data) => new Promise((resolve, reject) => {
@@ -28,3 +28,5 @@ export function ItemListContainer() {
         </>
     );
 }
+
+export default ItemListContainer;
