@@ -22,8 +22,7 @@ function ItemDetailContainer() {
     useEffect(() => {
         getData(Products)
             .then((result) => {
-                const filteredItems = result.filter(x => x.id === itemId)[0];
-                setItem(filteredItems);
+                setItem(result[0]);
               })
               .catch((err) => console.log(err));
             }, [itemId]);
@@ -32,7 +31,7 @@ function ItemDetailContainer() {
     return (
         <>
         {item ? (
-    <ItemDetail  item={itemId} />
+    <ItemDetail  item={item} />
       ) : (
         <Loader type="Hearts" color="#FFBFFF" height={100} width={100} />
       )}
