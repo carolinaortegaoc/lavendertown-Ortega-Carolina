@@ -5,7 +5,8 @@
       "photo": "https://img2.freepng.es/20180223/tsw/kisspng-make-up-bottle-cosmetics-blank-cosmetic-bottles-5a8ff3e19f8d74.2888341615193835216535.jpg",
       "price": 1500,
       "category" : "manos",
-      "stock": 10
+      "stock": 10,
+      "description": "crema de manos hidratante"
     },
   
     {
@@ -14,7 +15,8 @@
       "photo": "https://e7.pngegg.com/pngimages/677/886/png-clipart-lotion-skin-care-cream-cosmetics-personal-care-bottle-label-bottle.png",
       "price": 3600,
       "category" : "kit",
-      "stock": 10
+      "stock": 10,
+      "description": "kit esencial"
     },
   
     {
@@ -23,7 +25,8 @@
       "photo": "https://image.pngaaa.com/857/3155857-middle.png",
       "price": 1500,
       "category" : "kit",
-      "stock": 10
+      "stock": 10,
+      "description": "kit exfoliante 10/10"
     },
   
     {
@@ -32,7 +35,8 @@
       "photo": "https://png.pngtree.com/png-clipart/20190116/ourmid/pngtree-skin-care-products-brown-bottle-bottle-cartoon-essence-bottle-png-image_402365.jpg",
       "price": 2400,
       "category" : "serum",
-      "stock": 10
+      "stock": 10,
+      "description": "serum vitamina c"
     },
   
     {
@@ -41,6 +45,7 @@
       "photo": "https://png.pngtree.com/element_our/20190528/ourlarge/pngtree-cleanser-packaging-bottle-download-image_1119021.jpg",
       "price": 800,
       "category" : "cuerpo",
-      "stock": 25
+      "stock": 25,
+      "description": "ok, 10 puntos"
     }
   ]

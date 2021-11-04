@@ -13,6 +13,7 @@ const ItemDetail = ({ item }) => {
                             <img src={item.photo} alt="foto" className="gallery__img" />
                                 <p className="gallery__name">{item.name}</p>
                                     <p>$ {item.price}</p>
+                                    <p>$ {item.description}</p>
                                 <div className="agregar">Agregar al carrito</div>
                             </div>
                         </div>

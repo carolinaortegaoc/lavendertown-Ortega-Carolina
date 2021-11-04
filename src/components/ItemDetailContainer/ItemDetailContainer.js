@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import ItemDetail  from '../ItemDetail/ItemDetail';
 import Products  from '../Products.json';
 import Loader from "react-loader-spinner";
+import { useParams } from "react-router";
 
 
 function ItemDetailContainer() {
     const [item, setItem] = useState("");
-    const itemId = parseInt();
+    const { id } = useParams();
+    const itemId = parseInt(id);
 
     const getData = (data) => new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -22,7 +24,8 @@ function ItemDetailContainer() {
     useEffect(() => {
         getData(Products)
             .then((result) => {
-                setItem(result[0]);
+                const filteredItems = result.filter(x => x.id === itemId)[0];
+        setItem(filteredItems);
               })
               .catch((err) => console.log(err));
             }, [itemId]);

@@ -2,8 +2,11 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import ItemList  from '../ItemList/ItemList';
 import Products  from '../Products.json';
+import { useParams } from "react-router";
 
-function ItemListContainer() {
+
+export const ItemListContainer = () => {
+    const { catId } = useParams();
     const [productos, setProductos] = useState([]);
 
     const getData = (data) => new Promise((resolve, reject) => {
@@ -18,9 +21,13 @@ function ItemListContainer() {
 
     useEffect(() => {
         getData(Products)
-            .then((res) => setProductos(res))
+            .then((result) => {
+                catId
+                  ? setProductos(result.filter(x => x.category === catId))
+                  : setProductos(result);
+              })
             .catch((err) => console.log(err));
-    }, []);
+    }, [catId]);
 
     return (
         <>
