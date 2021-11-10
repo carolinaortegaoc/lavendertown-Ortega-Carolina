@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import '../ItemCount/ItemCount.css'
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial, id, onAdd }) => {
     const [ItemCount, setCounter] = useState(initial);
 
     const add = () => {
@@ -19,14 +19,21 @@ const ItemCount = ({ stock, initial }) => {
                 alert('Ups! No puedes agregar al carrito menos de un producto');
             }
         };
+
+        const handleOnAdd = () => {
+            if (ItemCount !== 0) {
+              onAdd(ItemCount);
+            }
+          };
     
     return (
         <div className="contador">
             <button onClick={remove}>-</button>
             <p>{ItemCount}</p>
             <button onClick={add}>+</button>
-            <button>Agregar al carrito</button>
+            <button id={id} onClick={() => handleOnAdd()}>Agregar al carrito{" "}</button>
         </div>
+        
     );
 }
 

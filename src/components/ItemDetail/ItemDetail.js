@@ -1,9 +1,15 @@
+import React, { useState } from "react";
 import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
-
+import { ViewCart } from "../ViewCart/ViewCart";
 
 const ItemDetail = ({ item }) => {
+    const [cartQuantity, setCartQuantity] = useState(0);
+
+    const saveQuantity = (counter) => {
+      setCartQuantity(counter);
+    };
 
     return (
         <>
@@ -17,10 +23,16 @@ const ItemDetail = ({ item }) => {
                                 <div className="agregar">Agregar al carrito</div>
                             </div>
                         </div>
-                <ItemCount initial={1} stock={item.stock} />
-            </div>
+                        {cartQuantity ? (
+        <ViewCart quantity={cartQuantity} />
+      ) : (
+        <ItemCount initial={1} stock={item.stock} id={item.id} onAdd={saveQuantity}
+        />
+      )}
+    </div>
         </>
     );
 }
+
 
 export default ItemDetail;
