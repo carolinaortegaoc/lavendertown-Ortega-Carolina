@@ -4,6 +4,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
 import { ViewCart } from "../ViewCart/ViewCart";
 
+
 const ItemDetail = ({ item }) => {
     const [cartQuantity, setCartQuantity] = useState(0);
 

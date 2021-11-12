@@ -3,13 +3,13 @@ import { Navbar } from './components/Navbar/Navbar';
 import  ItemDetailContainer  from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { CartContext } from "./Context/CartContext.js";
+import { CartProvider } from "./Context/CartContext.js";
 
 
 function App() {
   return (
     <div className="App">
-     <CartContext.Provider value={[]}>
+     <CartProvider>
 <BrowserRouter>
 <header >
   <Navbar />
@@ -32,7 +32,7 @@ function App() {
   </Route>
 </Switch>
 </BrowserRouter>
-      </CartContext.Provider>
+      </CartProvider>
 </div>
 );
 }
