@@ -1,16 +1,23 @@
 import React, { useState } from "react";
-import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
-import './ItemDetail.css';
+import { useCart } from "../Context/CartContext";
 import { ViewCart } from "../ViewCart/ViewCart";
+import './ItemDetail.css';
 
 
 const ItemDetail = ({ item }) => {
     const [cartQuantity, setCartQuantity] = useState(0);
 
-    const saveQuantity = (counter) => {
-      setCartQuantity(counter);
-    };
+    const { cart, addItem } = useCart();
+
+  console.log(cart);
+
+  const saveQuantity = (counter) => {
+    setCartQuantity(counter);
+    addItem({"info": item, "quantity": counter})
+    console.log("Cantidad y tipo de producto", cart)
+  };
+
 
     return (
         <>

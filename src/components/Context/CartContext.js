@@ -13,11 +13,14 @@ const addItem = (item, quantity) => {
     if (!isInCart) {
         setCart([...cart, newItem]);
     } else {
-        const foundedItem = cart.find((product) => product.id === item.id);
-        foundedItem.counter = foundedItem.counter + quantity;
-    }
-    return;
+setCart(cart.map((value) => {
+    if (value.info.id === item.info.id) {
+      value.quantity += item.quantity;
+    } return value;
+  }))
+}
 };
+
 
 const removeItem = (id) => {
     setCart(cart.filter((item) => item.id !== id));
