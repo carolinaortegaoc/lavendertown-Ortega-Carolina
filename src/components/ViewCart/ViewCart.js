@@ -6,6 +6,7 @@ export const ViewCart = ({ quantity }) => {
     <div className="gallery-container">
       <Link to="/cart">
         <button >Agregaste {quantity} productos</button>
+        <button>Terminar mi compra</button>
       </Link>
     </div>
   );

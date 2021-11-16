@@ -28,7 +28,6 @@ const ItemDetail = ({ item }) => {
                                 <p className="gallery__name">{item.name}</p>
                                     <p>$ {item.price}</p>
                                     <p>$ {item.description}</p>
-                                <div className="agregar">Agregar al carrito</div>
                             </div>
                         </div>
                         {cartQuantity ? (
