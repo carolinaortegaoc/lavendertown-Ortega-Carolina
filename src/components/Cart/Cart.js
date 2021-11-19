@@ -9,6 +9,16 @@ export const Cart = () => {
     return total + item.info.price * item.quantity;
   }, 0);
 
+  const handleBuy = () => {
+    console.log(order);
+  };
+  const order = {
+    buyer: { name: "jane doe", phone: "123456789", email: "email@email.com" },
+    items: cart,
+    totalToPay,
+  }
+
+
   return cart.length ? (
     <div>
       <div>
@@ -73,7 +83,7 @@ export const Cart = () => {
             <span className="value">$ {totalToPay}</span>
           </li>
           <li>
-            <a href="/#" className="btn continue">
+            <a href="/#" className="btn continue" onClick={() => handleBuy()}>
               Comprar
             </a>
           </li>

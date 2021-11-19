@@ -1,17 +1,44 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import ItemDetail  from '../ItemDetail/ItemDetail';
-import Products  from '../Products.json';
 import Loader from "react-loader-spinner";
 import { useParams } from "react-router";
+import { getFirestore } from "../../firebase/index";
+import { getDoc, doc } from "firebase/firestore";
 
 
 function ItemDetailContainer() {
     const [item, setItem] = useState("");
     const { id } = useParams();
-    const itemId = parseInt(id);
+    //const itemId = parseInt(id);
 
-    const getData = (data) => new Promise((resolve, reject) => {
+    useEffect(() => {
+      const db = getFirestore();
+      const itemColl = doc(db, "items", id);
+      getDoc(itemColl).then((snap) => {
+        if (snap.exists()) {
+          setItem(snap.data());
+        } 
+      });
+    }, [id]);
+ 
+    return (
+        <>
+        {item ? (
+    <ItemDetail  item={item} />
+      ) : (
+        <Loader type="Hearts" color="#FFBFFF" height={100} width={100} />
+      )}
+    </>
+  );
+};
+
+export default ItemDetailContainer;
+
+
+ 
+
+    /* const getData = (data) => new Promise((resolve, reject) => {
         setTimeout(() => {
             if (data) {
                 resolve(data);
@@ -28,18 +55,5 @@ function ItemDetailContainer() {
         setItem(filteredItems);
               })
               .catch((err) => console.log(err));
-            }, [itemId]);
+            }, [itemId]); */
           
-
-    return (
-        <>
-        {item ? (
-    <ItemDetail  item={item} />
-      ) : (
-        <Loader type="Hearts" color="#FFBFFF" height={100} width={100} />
-      )}
-    </>
-  );
-};
-
-export default ItemDetailContainer;
