@@ -10,6 +10,7 @@ const Item = ({ item }) => {
  <p className="gallery__name">{item.name}</p>
  <p className="gallery__name"> {item.description}</p>
   <p className="gallery__name">$ {item.price}</p>
+  <Link to={`/item/${item.id}`}><button>Ver detalle</button></Link>
  </div>
 </div>
   );

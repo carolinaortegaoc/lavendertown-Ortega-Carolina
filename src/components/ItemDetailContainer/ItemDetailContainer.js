@@ -4,23 +4,29 @@ import ItemDetail  from '../ItemDetail/ItemDetail';
 import Loader from "react-loader-spinner";
 import { useParams } from "react-router";
 import { getFirestore } from "../../firebase/index";
-import { getDoc, doc } from "firebase/firestore";
+import { getDocs, query, collection } from "firebase/firestore";
 
 
 function ItemDetailContainer() {
-    const [item, setItem] = useState("");
+    const [item, setItems] = useState("");
     const { id } = useParams();
-    //const itemId = parseInt(id);
+
 
     useEffect(() => {
       const db = getFirestore();
-      const itemColl = doc(db, "items", id);
-      getDoc(itemColl).then((snap) => {
-        if (snap.exists()) {
-          setItem(snap.data());
-        } 
+      const q = query(
+        collection(db, "items")
+      );
+      getDocs(q).then((snapshot) => {
+        setItems(
+          snapshot.docs.map((doc) => {
+            const newDoc = { ...doc.data(), id: doc.id}
+            console.log(newDoc)
+            return doc.data();
+          })
+        );
       });
-    }, [id]);
+      },[id]);
  
     return (
         <>

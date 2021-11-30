@@ -8,14 +8,13 @@ import './ItemDetail.css';
 const ItemDetail = ({ item }) => {
     const [cartQuantity, setCartQuantity] = useState(0);
 
-    const { cart, addItem } = useCart();
+    const { addItem } = useCart();
 
-  console.log(cart);
 
   const saveQuantity = (counter) => {
     setCartQuantity(counter);
     addItem({"info": item, "quantity": counter})
-    console.log("Cantidad y tipo de producto", cart)
+
   };
 
 

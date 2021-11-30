@@ -9,8 +9,8 @@ const ItemList = ({ productos }) => {
   return (
       <div className="coso">
         {productos.length ? (
-            productos.map((producto) => 
-                <Item item={producto} key={producto.id} />
+            productos.map((productos) => 
+                <Item item={productos} key={productos.id} />
                 )
       ) : (
         <Loader type="Hearts" color="#FFBFFF" height={100} width={100} />
