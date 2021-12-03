@@ -15,7 +15,7 @@ const Cart = () => {
   });
   
   const totalToPay = cart.reduce((total, item) => {
-    return total + item.info.price * item.quantity;
+    return total + item.info[0].price * item.quantity;
   }, 0);
   const date = new Date();
   const orderDate = date.toLocaleDateString();

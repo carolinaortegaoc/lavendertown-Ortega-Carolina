@@ -1,9 +1,11 @@
 import React from 'react'
-import '../Style/navbarSASS.css'
+import './Navbar.css';
 import {CartWidget} from '../CartWidget/CartWidget'
 import { Link, NavLink} from "react-router-dom";
 //import { useState } from "react";
 import { useCart } from "../Context/CartContext";
+import logolavender from "./logolavender.png";
+
 
 export const Navbar = () => {
     const { cart } = useCart();
@@ -14,7 +16,9 @@ export const Navbar = () => {
             <>
                 <nav className='nav'>
                 <div className='container_title'>
-                <Link to={"/"}>lavender town</Link>
+                <Link to="/">
+                        <img src={logolavender} alt="Logo" className="logo" />
+                    </Link>
                 </div>
                 <ul className='navUl'>
                     <li className='navLi'><NavLink to={"/category/cuerpo"}>cuerpo</NavLink></li>

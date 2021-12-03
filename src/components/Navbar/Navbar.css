@@ -1,0 +1,37 @@
+.nav {
+    display: flex;
+    background-color: #f4f4f4;
+    align-items: center;
+    height: 100px;
+    text-decoration: none;
+    outline: none;
+  }
+  
+  .container_title {
+    text-align: left;
+    width: 70%;
+    padding-left: 10px;
+    color:blueviolet;
+  }
+  
+  .navUl {
+    list-style: none;
+    display: flex;
+    
+  }
+  
+  .navLi {
+    padding: 10px;
+  }
+  
+  
+  a:-webkit-any-link {
+    color: #c79c1c;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
