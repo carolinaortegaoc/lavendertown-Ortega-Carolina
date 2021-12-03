@@ -38,25 +38,3 @@ export const ItemListContainer = () => {
 export default ItemListContainer;
 
 
-
-
-
- /*  const getData = (data) => new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (data) {
-                resolve(data);
-            } else {
-                reject("Nope");
-            }
-        }, 2000);
-    });
-
-    useEffect(() => {
-        getData(Products)
-            .then((result) => {
-                catId
-                  ? setProductos(result.filter(x => x.category === catId))
-                  : setProductos(result);
-              })
-            .catch((err) => console.log(err));
-    }, [catId]); */

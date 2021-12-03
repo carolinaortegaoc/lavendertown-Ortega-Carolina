@@ -42,24 +42,4 @@ function ItemDetailContainer() {
 export default ItemDetailContainer;
 
 
- 
 
-    /* const getData = (data) => new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (data) {
-                resolve(data);
-            } else {
-                reject("Nope");
-            }
-        }, 2000);
-    });
-
-    useEffect(() => {
-        getData(Products)
-            .then((result) => {
-                const filteredItems = result.filter(x => x.id === itemId)[0];
-        setItem(filteredItems);
-              })
-              .catch((err) => console.log(err));
-            }, [itemId]); */
-          

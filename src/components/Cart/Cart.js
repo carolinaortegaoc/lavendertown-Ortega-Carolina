@@ -5,14 +5,15 @@ import { getFirestore } from "../../firebase/index";
 import { collection, addDoc } from "firebase/firestore";
 
 
-export const Cart = () => {
-  const { cart, removeItem, clear } = useCart();
+const Cart = () => {
+  const {cart, removeItem, clearCart} = useCart();
   const [buyer, setBuyer] = useState({
     buyerName: "",
     buyerMail: "",
     buyerPhone: "",
     buyerDireccion: "",
   });
+  
   const totalToPay = cart.reduce((total, item) => {
     return total + item.info.price * item.quantity;
   }, 0);
@@ -21,7 +22,7 @@ export const Cart = () => {
   const formHandler = (e) => {
     setBuyer({ ...buyer, [e.target.name]: e.target.value });
   };
-
+  
   const handleBuy = (e) => {
     const db = getFirestore();
     const order = {
@@ -30,15 +31,16 @@ export const Cart = () => {
       totalToPay,
       date: orderDate,
     };
-
+  
     console.log(order)
-
+  
     const ordersCollection = collection(db, "orders");
     addDoc(ordersCollection, order).then(({ id }) =>
       console.log(id)
     );
-    clear();
   };
+
+
 
 
   return cart.length ? (
@@ -52,43 +54,25 @@ export const Cart = () => {
 
       {cart?.map((item) => {
         return (
-          <div className="cart" key={item.info.id}>
+          <div className="producto-carrito" key={item.id}>
             <ul>
               <li>
                 <div>
                   <div>
-                    <img
-                      src={item.info.photo}
-                      alt=""
-                      className="itemImg"
-                    />
-                    <h3>{item.info.title}</h3>
-
-                    <p>
-                      {item.quantity}
-                    </p>
-                  </div>
-
-                  <div>
-                    <p>$ {item.info.price * item.quantity}</p>
+                    <img src={item.photo} alt="" className="itemImg" />
+                    <p>{item.title}</p>
+                    <p>Cantidad: {item.quantity}</p>
+                    <p>Precio: $ {item.price * item.quantity}</p>
                   </div>
                   <div>
-                    <button
-                      className="remove"
-                      onClick={() => {
+                    <button className="boton-eliminar" onClick={() => {
                         removeItem(item.id);
                       }}
-                    >
-                      Eliminar producto
-                    </button>
-                    <button
-        className="vaciar"
-        onClick={() => {
-          clear(item);
+                    >Eliminar producto</button>
+                    <button className="boton-vaciar" onClick={() => {
+          clearCart(item);
         }}
-      >
-        Vaciar carrito
-      </button>
+      >Vaciar carrito</button>
                   </div>
                 </div>
               </li>
@@ -96,6 +80,7 @@ export const Cart = () => {
           </div>
         );
       })}
+
 
 
       <div>
@@ -149,3 +134,6 @@ export const Cart = () => {
     </div>
   );
 };
+
+
+export default Cart;

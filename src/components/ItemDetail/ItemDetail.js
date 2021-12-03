@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ItemCount from '../ItemCount/ItemCount';
 import { useCart } from "../Context/CartContext";
 import { ViewCart } from "../ViewCart/ViewCart";
+
 import './ItemDetail.css';
 
 
