@@ -15,7 +15,7 @@ const Cart = () => {
   });
   
   const totalToPay = cart.reduce((total, item) => {
-    return total + item.info[0].price * item.quantity;
+    return total + item.info.price * item.quantity;
   }, 0);
   const date = new Date();
   const orderDate = date.toLocaleDateString();
@@ -54,7 +54,7 @@ const Cart = () => {
 
       {cart?.map((item) => {
         return (
-          <div className="producto-carrito" key={item.id}>
+          <div className="producto-carrito" key={item.info.id}>
             <ul>
               <li>
                 <div>
@@ -62,7 +62,7 @@ const Cart = () => {
                     <img src={item.photo} alt="" className="itemImg" />
                     <p>{item.title}</p>
                     <p>Cantidad: {item.quantity}</p>
-                    <p>Precio: $ {item.price * item.quantity}</p>
+                    <p>Precio: $ {item.info.price * item.quantity}</p>
                   </div>
                   <div>
                     <button className="boton-eliminar" onClick={() => {

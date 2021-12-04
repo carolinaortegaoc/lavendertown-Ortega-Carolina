@@ -5,8 +5,11 @@ export const ViewCart = ({ quantity }) => {
   return (
     <div className="gallery-container">
       <Link to="/cart">
-        <button >Agregaste {quantity} productos</button>
+        <p>Agregaste {quantity} productos</p>
         <button>Terminar mi compra</button>
+      </Link>
+      <Link to="/#">
+      <button>Seguir comprando</button>
       </Link>
     </div>
   );

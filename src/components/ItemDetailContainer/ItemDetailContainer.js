@@ -29,17 +29,14 @@ function ItemDetailContainer() {
       },[id]);
  
     return (
-        <>
-        {item ? (
-    <ItemDetail  item={item} />
-      ) : (
-        <Loader type="Hearts" color="#FFBFFF" height={100} width={100} />
-      )}
+    <>
+      {
+        
+        item ? (<ItemDetail  item={item} id={id}/>) : (<Loader type="Hearts" color="#FFBFFF" height={100} width={100} />)
+      }
     </>
   );
 };
 
 export default ItemDetailContainer;
-
-
 

@@ -10,7 +10,7 @@ export const CartProvider = ({ children }) => {
 
 const addItem = (item, quantity) => {
     const newItem = {...item, counter: quantity};
-    const isInCart = cart.some((product) => product.id === item.id);
+    const isInCart = cart.some((product) => product.info.id === item.info.id);
     if (!isInCart) {
         setCart([...cart, newItem]);
     } else {
