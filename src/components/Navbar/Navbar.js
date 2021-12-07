@@ -2,7 +2,6 @@ import React from 'react'
 import './Navbar.css';
 import {CartWidget} from '../CartWidget/CartWidget'
 import { Link, NavLink} from "react-router-dom";
-//import { useState } from "react";
 import { useCart } from "../Context/CartContext";
 import logolavender from "./logolavender.png";
 
@@ -21,10 +20,10 @@ export const Navbar = () => {
                     </Link>
                 </div>
                 <ul className='navUl'>
-                    <li className='navLi'><NavLink to={"/category/cuerpo"}>cuerpo</NavLink></li>
-                    <li className='navLi'><NavLink to={"/category/manos"}>manos</NavLink></li>
-                    <li className='navLi'><NavLink to={"/category/serum"}>serum</NavLink></li>
-                    <li className='navLi'><NavLink to={"/category/kit"}>kits</NavLink></li>
+                    <li className='navLi'><NavLink to={"/category/Cuerpo"}>Cuerpo</NavLink></li>
+                    <li className='navLi'><NavLink to={"/category/Manos"}>Manos</NavLink></li>
+                    <li className='navLi'><NavLink to={"/category/Serum"}>Serum</NavLink></li>
+                    <li className='navLi'><NavLink to={"/category/Kits"}>Kits</NavLink></li>
                 </ul>
                 <Link to="/cart" style={{ textDecoration: "none" }}>
         <CartWidget totalItems={itemsInCart} />

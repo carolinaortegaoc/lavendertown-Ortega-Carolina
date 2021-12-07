@@ -1,47 +1,16 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
-import { getFirestore } from "../../firebase/index";
-import { collection, addDoc } from "firebase/firestore";
+import CheckoutForm from "../Form/CheckoutForm";
+import "./Cart.css";
 
 
 const Cart = () => {
   const {cart, removeItem, clearCart} = useCart();
-  const [buyer, setBuyer] = useState({
-    buyerName: "",
-    buyerMail: "",
-    buyerPhone: "",
-    buyerDireccion: "",
-  });
-  
   const totalToPay = cart.reduce((total, item) => {
     return total + item.info.price * item.quantity;
   }, 0);
-  const date = new Date();
-  const orderDate = date.toLocaleDateString();
-  const formHandler = (e) => {
-    setBuyer({ ...buyer, [e.target.name]: e.target.value });
-  };
   
-  const handleBuy = (e) => {
-    const db = getFirestore();
-    const order = {
-      buyer,
-      cart,
-      totalToPay,
-      date: orderDate,
-    };
-  
-    console.log(order)
-  
-    const ordersCollection = collection(db, "orders");
-    addDoc(ordersCollection, order).then(({ id }) =>
-      console.log(id)
-    );
-  };
-
-
-
 
   return cart.length ? (
     <div>
@@ -54,74 +23,35 @@ const Cart = () => {
 
       {cart?.map((item) => {
         return (
-          <div className="producto-carrito" key={item.info.id}>
-            <ul>
-              <li>
+          <div className="contenedor-carrito">
                 <div>
-                  <div>
-                    <img src={item.photo} alt="" className="itemImg" />
+                  <div className="producto-carrito" key={item.info.id}>
+                    <img src={item.info.photo} alt="" className="itemImg" />
+                    </div>
+                    <div className="titulos-carrito">
                     <p>{item.title}</p>
-                    <p>Cantidad: {item.quantity}</p>
+                    <p>Cantidad: {item.info.quantity}</p>
                     <p>Precio: $ {item.info.price * item.quantity}</p>
-                  </div>
+                    </div>
                   <div>
-                    <button className="boton-eliminar" onClick={() => {
+                    <button className="boton" onClick={() => {
                         removeItem(item.id);
                       }}
                     >Eliminar producto</button>
-                    <button className="boton-vaciar" onClick={() => {
+                    <button className="boton" onClick={() => {
           clearCart(item);
         }}
       >Vaciar carrito</button>
                   </div>
                 </div>
-              </li>
-            </ul>
           </div>
         );
       })}
-
-
-
       <div>
-        <ul style={{ listStyleType: "none" }}>
-          <li>
-            <span className="label">Total</span>
-            <span className="value">$ {totalToPay}</span>
-          </li>
-          <li className="totalRow">
-            <form onSubmit={handleBuy}>
-              <input
-                type="text"
-                placeholder="Nombre y Apellido"
-                name="buyerName"
-                onChange={formHandler}
-              />
-              <input
-                type="email"
-                placeholder="Mail"
-                name="buyerMail"
-                onChange={formHandler}
-              />
-              <input
-                type="domicilio"
-                placeholder="direccion"
-                name="buyerDireccion"
-                onChange={formHandler}
-              />
-              <input
-                type="tel"
-                placeholder="Teléfono"
-                name="buyerPhone"
-                onChange={formHandler}
-              />
-            </form>
-            <a href="/#" className="btn continue" onClick={() => handleBuy()}>
-              Comprar
-            </a>
-          </li>
-        </ul>
+      <p className="label">Total</p>
+      <p className="value">$ {totalToPay}</p>
       </div>
+      <CheckoutForm cart={cart} totalToPay={totalToPay}/>
     </div>
   ) : (
     <div>

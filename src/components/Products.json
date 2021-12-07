@@ -1,51 +1,51 @@
 [
     {
       "id": 1,
-      "name": "crema de manos",
+      "name": "Crema para manos",
       "photo": "https://img2.freepng.es/20180223/tsw/kisspng-make-up-bottle-cosmetics-blank-cosmetic-bottles-5a8ff3e19f8d74.2888341615193835216535.jpg",
       "price": 1500,
-      "category" : "manos",
+      "category" : "Manos",
       "stock": 10,
-      "description": "crema de manos hidratante"
+      "description": "Crema para manos hidratante a base de castañas."
     },
   
     {
       "id": 2,
-      "name": "kit hidratante",
+      "name": "Kit hidratante",
       "photo": "https://e7.pngegg.com/pngimages/677/886/png-clipart-lotion-skin-care-cream-cosmetics-personal-care-bottle-label-bottle.png",
       "price": 3600,
-      "category" : "kit",
+      "category" : "Kits",
       "stock": 10,
-      "description": "kit esencial"
+      "description": "Kit esencial para todxs aquellos que quieran comenzar en el mundo del skincare."
     },
   
     {
       "id": 3,
-      "name": "kit exfoliacion",
+      "name": "Kit exfoliacion",
       "photo": "https://image.pngaaa.com/857/3155857-middle.png",
       "price": 1500,
-      "category" : "kit",
+      "category" : "Kits",
       "stock": 10,
-      "description": "kit exfoliante 10/10"
+      "description": "Kit exfoliante apto para todo tipo de piel."
     },
   
     {
       "id": 4,
-      "name": "serum vit C",
+      "name": "Serum Vitamina C",
       "photo": "https://png.pngtree.com/png-clipart/20190116/ourmid/pngtree-skin-care-products-brown-bottle-bottle-cartoon-essence-bottle-png-image_402365.jpg",
       "price": 2400,
-      "category" : "serum",
+      "category" : "Serum",
       "stock": 10,
-      "description": "serum vitamina c"
+      "description": "Nueva formula para nuestro clasico serum de Vitamina C."
     },
   
     {
       "id": 5,
-      "name": "crema de cuerpo",
+      "name": "Crema corporal",
       "photo": "https://png.pngtree.com/element_our/20190528/ourlarge/pngtree-cleanser-packaging-bottle-download-image_1119021.jpg",
       "price": 800,
-      "category" : "cuerpo",
+      "category" : "Cuerpo",
       "stock": 25,
-      "description": "ok, 10 puntos"
+      "description": "Crema humectante corporal a base de frutos rojos y karite."
     }
   ]

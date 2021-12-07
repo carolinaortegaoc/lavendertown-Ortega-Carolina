@@ -1,0 +1,30 @@
+.viewCart {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding-left: 250px;
+    position: relative;
+    top: -150px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-content: space-around;
+}
+
+.boton {
+    text-decoration: none;
+    background-color: #f0d8f5;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 80px;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+  .tituloCart {
+      text-align: center;
+      color: #c79c1c;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: large;
+    font-family: 'Josefin Sans', sans-serif;
+  }

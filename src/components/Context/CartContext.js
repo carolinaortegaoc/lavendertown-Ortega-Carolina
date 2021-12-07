@@ -24,8 +24,9 @@ setCart(cart.map((value) => {
 
 
 const removeItem = (id) => {
-    setCart(cart.filter((item) => item.id !== id));
+    setCart(cart.filter((item) => item.info.id !== id));
 };
+
 
 const clearCart = () => {
     setCart([]);

@@ -6,7 +6,7 @@ import { getFirestore } from "../../firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 export const ItemListContainer = () => {
-    const { id } = useParams();
+    const { catId } = useParams();
     const [productos, setProductos] = useState([]);
 
     useEffect(() => {
@@ -17,15 +17,15 @@ export const ItemListContainer = () => {
         setProductos(snap.docs.map((productos) => productos.data()));
       });
     
-      if (id) {
-        const q = query(collection(db, "items"), where("category", id));
+      if (catId) {
+        const q = query(collection(db, "items"), where("category", "==", catId));
         getData(q);
       } else {
         const q = query(collection(db, "items"));
         getData(q);
       }
 
-    }, [id]);
+    }, [catId]);
 
 
     return (

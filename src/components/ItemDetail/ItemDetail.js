@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ItemCount from '../ItemCount/ItemCount';
 import { useCart } from "../Context/CartContext";
 import { ViewCart } from "../ViewCart/ViewCart";
-
 import './ItemDetail.css';
 
 
@@ -18,22 +17,24 @@ const ItemDetail = ( props ) => {
     
   };
   
-  useEffect(() => {
+  useEffect(() => {// eslint-disable-next-line
     setCurrentItem(props.item.find(i => i.id == props.id));
-  }, []);
+  }, [props]);
 
 
-    return (
-        <>
-            <div className="itemDetailContainer">
-                    <div className="gallery-container">
-                        <div className="gallery__item">
-                            <img src={currentItem.photo} alt="foto" className="gallery__img" />
-                                <p className="gallery__name">{currentItem.name}</p>
-                                    <p>$ {currentItem.price}</p>
-                                    <p>$ {currentItem.description}</p>
-                            </div>
+  return (
+    <>
+        <div className="itemDetailContainer">
+                <div className="gallery-container">
+                    <div className="gallery__item">
+                        <img src={currentItem.photo} alt="foto" className="gallery__img" />
                         </div>
+                            <div className="gallery__name">
+                            <h1>{currentItem.name}</h1>
+                                <h2>$ {currentItem.price}</h2>
+                                <p>{currentItem.description}</p>
+                                </div>
+                    </div>
                         {cartQuantity ? (
         <ViewCart quantity={cartQuantity} />
       ) : (
