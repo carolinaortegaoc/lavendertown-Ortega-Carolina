@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { db } from "../../firebase/index";
 import { collection, addDoc } from "firebase/firestore";
+import Swal from "sweetalert2";
 
 
 const CheckoutForm = ({cart, totalToPay}) => {
@@ -24,12 +25,17 @@ const [buyer, setBuyer] = useState({
         cart,
         totalToPay,
         date: orderDate,
-      }
+      };
     console.log(order)
 
   const ordersCollection = collection(db, "orders");
   addDoc(ordersCollection, order).then(({ id }) =>
-      console.log(id)
+  Swal.fire({
+    icon: 'success',
+    title: 'Compra realizada!',
+    text: `Muchas gracias! Su codigo de compra es: ${id}`,
+    showConfirmButton: true
+  })
     );
   }
 
