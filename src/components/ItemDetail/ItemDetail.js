@@ -13,7 +13,8 @@ const ItemDetail = ( props ) => {
   const [ currentItem, setCurrentItem ] = useState([]);
   const saveQuantity = (counter) => {
     setCartQuantity(counter);
-    addItem({"info": currentItem, "quantity": counter})
+    const elemento = {"info": currentItem, "quantity": counter}
+    addItem(elemento)
     
   };
   

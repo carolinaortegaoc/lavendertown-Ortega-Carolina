@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { db } from "../../firebase/index";
 import { collection, addDoc } from "firebase/firestore";
 import Swal from "sweetalert2";
+import { useHistory } from "react-router-dom";
 
 
 const CheckoutForm = ({cart, totalToPay}) => {
@@ -15,6 +16,8 @@ const [buyer, setBuyer] = useState({
     setBuyer({ ...buyer, [e.target.name]: e.target.value });
   }
 
+  const history = useHistory();
+
   const date = new Date();
   const orderDate = date.toLocaleDateString();
 
@@ -27,7 +30,9 @@ const [buyer, setBuyer] = useState({
         date: orderDate,
       };
     console.log(order)
+    
 
+    
   const ordersCollection = collection(db, "orders");
   addDoc(ordersCollection, order).then(({ id }) =>
   Swal.fire({
@@ -35,7 +40,7 @@ const [buyer, setBuyer] = useState({
     title: 'Compra realizada!',
     text: `Muchas gracias! Su codigo de compra es: ${id}`,
     showConfirmButton: true
-  })
+  }).then(() => history.push('/'))
     );
   }
 
