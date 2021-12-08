@@ -30,7 +30,7 @@ const Cart = () => {
                     </div>
                     <div className="titulos-carrito">
                     <p>{item.title}</p>
-                    <p>Cantidad: {itemgit.quantity}</p>
+                    <p>Cantidad: {item.quantity}</p>
                     <p>Precio: $ {item.info.price * item.quantity}</p>
                     </div>
                   <div>
