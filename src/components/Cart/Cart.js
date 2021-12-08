@@ -48,8 +48,8 @@ const Cart = () => {
         );
       })}
       <div>
-      <p className="label">Total</p>
-      <p className="value">$ {totalToPay}</p>
+      <h2 className="titulos-carrito">Total</h2>
+      <p className="titulos-carrito">$ {totalToPay}</p>
       </div>
       <CheckoutForm cart={cart} totalToPay={totalToPay}/>
     </div>

@@ -3,7 +3,7 @@ import { db } from "../../firebase/index";
 import { collection, addDoc } from "firebase/firestore";
 import Swal from "sweetalert2";
 import { useHistory } from "react-router-dom";
-
+import "./CheckoutForm.css";
 
 const CheckoutForm = ({cart, totalToPay}) => {
 const [buyer, setBuyer] = useState({
@@ -45,7 +45,7 @@ const [buyer, setBuyer] = useState({
   }
 
 return (
-  <div>
+  <div className="formulario">
     <h2>Por favor, completa los datos de compra:</h2>
   <form action="#">
           <label>Inserta aquí tu nombre y apellido</label>
