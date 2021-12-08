@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+# Lavender Town 👻🌻
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proyecto creado para el curso de React JS de Coderhouse.
+
+Es un e-commerce sencillo y de facil uso. Cuenta con cuatro categorias de productos donde se puede navegar y ver cada uno de ellos, con su nombre y precio. Al hacer click tanto en la imagen de producto o en el boton "ver detalles" se desplega una breve descripcion y la posibilidad de agregar 1 o mas unidades. Al agregar al menos 1 unidad, se vera reflejada en el contador del carrito ubciado en la barra de navegacion.
+El carrito cuenta con un detalle de los productos, tanto imagen, precio y la posibilidad de eliminar la cantidad deseada del producto o vaciar en su totalidad el carrito. Para finalizar la compra, se debe completar un formulario sencillo.
+
+El proyecto cuenta a su vez con la implementacion de Firebase, donde estan alojados los productos y se generan ordenes de compra con un ID aleatorio al llenar el formulario anteriormente mencionado.
+Para el reemplazo de las alerts se utilizo la libreria Sweetalert2, buscando una estetica mas acorde pero que sea funcional y amigable al uso.
+
+
+
 
 ## Available Scripts
 
